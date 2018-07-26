@@ -9,6 +9,7 @@
 #include <vector>
 using namespace std;
 
+// The node
 struct Node
 {
   string name;
@@ -17,6 +18,7 @@ struct Node
   list<int> neighbors;
 };
 
+// Do
 queue<int> doBreadthFirstSearch(int iOriginNode, vector<Node>& database)
 {
   queue<int> searchOrder; // return this queue of indices
@@ -25,7 +27,7 @@ queue<int> doBreadthFirstSearch(int iOriginNode, vector<Node>& database)
   for(int i = 0; i < database.size(); i++) database[i].isVisited = false; // initialize each node in database: set to "not visited" --- false is not visited
     
   database[iOriginNode].isVisited = true; // mark starting node as "visited" -- true is visited
-  searchOrder.push(iOriginNode); // push start node's index onto the result queue 
+  searchOrder.push(iOriginNode); // start node's index added result queue
   toDoList.push(iOriginNode); // push start node's index onto the "to-do" list
 
   while(!toDoList.empty()) // while the "to-do" list is not empty
